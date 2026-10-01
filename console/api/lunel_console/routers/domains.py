@@ -10,11 +10,13 @@ Endpoints per instance:
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import secrets
 
 import asyncpg
 from fastapi import APIRouter, Depends, HTTPException, Request
 
 from ..auth import sessions
+from ..config import settings
 from ..db import get_pool
 from ..services.domains import generate_domain
 from ..services import deployments as deploy_svc
@@ -135,5 +137,4 @@ def _console_origin(request: Request) -> str:
     proto = request.headers.get("x-forwarded-proto") or request.url.scheme or "https"
     host = request.headers.get("x-forwarded-host") or request.headers.get("host") or "127.0.0.1:8080"
     return f"{proto}://{host}"
-
 

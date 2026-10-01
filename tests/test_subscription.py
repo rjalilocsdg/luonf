@@ -26,14 +26,15 @@ class SubscriptionTests(unittest.TestCase):
         page = render_subscription('<script>alert(1)</script>@@COUNT@@', configs, 'example.test', '/i/token/sub')
         self.assertIn('&lt;script&gt;alert(1)&lt;/script&gt;@@COUNT@@', page)
         self.assertNotIn('<script>alert(1)</script>', page)
-        self.assertIn('buildQrSvg', page)
+        self.assertIn('id="qrPlate"', page)
         self.assertNotIn('cdnjs.cloudflare.com', page)
         self.assertNotIn('<?', page)
         self.assertIn('Not reported', page)
         self.assertIn('/i/token/ws/uuid', page)
         self.assertIn('http/1.1', page)
         self.assertIn(CONFIGS[0]['share_url'], unescape(page))
-        matrix = json.loads(re.search(r'var QR_MATRIX = (.*);', page)[1])
+        # Obfuscated distributions rename locals and compact declarations.
+        matrix = json.loads(re.search(r'\[\[(?:true|false)[\s\S]*?\]\]', page)[0])
         self.assertGreater(len(matrix), 20)
         self.assertTrue(all(len(row) == len(matrix) for row in matrix))
 

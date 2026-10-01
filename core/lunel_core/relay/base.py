@@ -9,7 +9,7 @@ import asyncio
 import socket
 import time
 
-from fastapi import WebSocket
+from fastapi import WebSocket, WebSocketDisconnect
 
 from ..logging import get
 from ..state import ConnectionTracker, LinkStore, RuntimeStats

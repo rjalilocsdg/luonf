@@ -22,7 +22,7 @@ import httpx
 from ..config import settings
 from ..logging import get
 from . import workers as worker_svc
-from .railway import RailwayError, RailwayProvider
+from .railway import RailwayError, RailwayProvider, STATUS_MAP
 
 log = get("runtime", "lunel.console.deploy")
 

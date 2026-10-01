@@ -99,6 +99,7 @@ lunel/
 
 ## Documentation
 
+- [OBFUSCATION.md](docs/OBFUSCATION.md) — build a protected native distribution
 - [ARCHITECTURE.md](docs/ARCHITECTURE.md) — components, request flow, data model
 - [API.md](docs/API.md) — Console + Core + Worker HTTP API reference
 - [SECURITY.md](docs/SECURITY.md) — security model, threat decisions, reporting

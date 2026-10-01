@@ -14,6 +14,9 @@ venv/
 
 # Node/tooling
 node_modules/
+dist/
+.venv-build/
+.venv-obfuscate/
 .DS_Store
 *.log
 .pytest_cache/

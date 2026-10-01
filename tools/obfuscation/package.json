@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node obfuscate.mjs" },
+  "dependencies": { "javascript-obfuscator": "4.1.1" },
+  "devDependencies": { "jsdom": "26.1.0" }
+}
